@@ -23,6 +23,11 @@ public class JsonUtils {
         String image = "";
         String ingredients = "";
 
+        /*
+            I took notes on how to implement the JSONObject from looking at this StackOverflow thread
+            https://stackoverflow.com/questions/9605913/how-to-parse-json-in-android
+            4/28/18
+         */
 
         try {
             JSONObject jb = new JSONObject(json);
