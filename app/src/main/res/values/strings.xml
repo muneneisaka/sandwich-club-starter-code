@@ -7,6 +7,11 @@
     <string name="detail_description_label">Description:</string>
     <string name="detail_ingredients_label">Ingredients:</string>
 
+    <string name="detail_also_known_as_placeholder">Also known as</string>
+    <string name="detail_place_of_origin_placeholder">Place of origin</string>
+    <string name="detail_description_placeholder">Description</string>
+    <string name="detail_ingredients_placeholder">Ingredients</string>
+
     <!-- Content descriptions-->
     <string name="sandwich_picture_content_description">Sandwich picture</string>
 

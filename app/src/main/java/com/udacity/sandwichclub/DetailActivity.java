@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -43,7 +44,7 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        populateUI();
+        populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
@@ -56,7 +57,21 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI() {
+    //modify populateUI to accept Sandwich parameter
+    private void populateUI(Sandwich s) {
 
+        TextView tv_description = findViewById(R.id.description_tv);
+        tv_description.setText(s.getDescription());
+        TextView tv_ingredients = findViewById(R.id.ingredients_tv);
+        String ingredients2 = s.getIngredients().toString();
+        int lengthIngredients = ingredients2.length();
+        tv_ingredients.setText(ingredients2.substring(1,lengthIngredients-3));
+        TextView tv_alsoknown = findViewById(R.id.also_known_tv);
+        String alsoKnownAs2 = s.getAlsoKnownAs().toString();
+        int lengthAlsoKnownAs = alsoKnownAs2.length();
+        if(lengthAlsoKnownAs == 2) tv_alsoknown.setText("N/A");
+        else tv_alsoknown.setText(alsoKnownAs2.substring(1,lengthAlsoKnownAs-3)); //strip the brackets off
+        TextView tv_orign = findViewById(R.id.origin_tv);
+        tv_orign.setText(s.getPlaceOfOrigin());
     }
 }
